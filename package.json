@@ -10,7 +10,9 @@
 	"description": "Syntax highlighting for Promela and Spin Simulation on debugger",
 	"categories": [
 		"Programming Languages",
-		"Debuggers"
+		"Debuggers",
+		"Snippets"
+
 	],
 	"preview": true,
 	"repository": {
@@ -151,6 +153,12 @@
 						}
 					}
 				]
+			}
+		],
+		"snippets": [
+			{
+				"language": "promela",
+				"path": "./snippets/snippets.json"
 			}
 		],
 		"configuration": {

@@ -1,0 +1,174 @@
+{
+	"Loop over a simple inclusive range" : {
+		"prefix": "fori",
+
+		"body": [
+			"for (${1:variable} : ${2:startInclusive} .. ${3:endInclusive})",
+			"{",
+			"\t$0",
+			"}"
+			],
+		"description": "Bound-inclusive for loop"
+	},
+
+	"Loop over channel message" : {
+		"prefix": "forc",
+
+		"body": [
+			"for (${1:variable} in ${2:channel})",
+			"{",
+			"\t$0",
+			"}"
+			],
+		"description": "Bound-inclusive for loop"
+	},
+
+	"If Statement" : {
+		"prefix": "if",
+
+		"body": [
+			"if (${1:cond})",
+			":: ${2:expr} -> $0",
+			"fi"
+			],
+		"description": "Simple if statement"
+	},
+
+	"If-Else Statement" : {
+		"prefix": "ifelse",
+
+		"body": [
+			"if (${1:cond})",
+			":: ${2:expr} -> $0",
+			":: else -> // FIXME",
+			"fi"
+			],
+		"description": "If-Else statement"
+	},
+
+	"Do Statement" : {
+		"prefix": "do",
+
+		"body": [
+			"do",
+			":: ${1:expr} -> $0",
+			"od"
+			],
+		"description": "Do statement"
+	},
+
+	"Active Proctype" : {
+		"prefix": "active",
+
+		"body": [
+			"active [${1:count}] proctype ${2:name}() {",
+			"\t$0",
+			"}"
+			],
+		"description": "Active proctype definition"
+	},
+
+	"Proctype" : {
+		"prefix": "proctype",
+
+		"body": [
+			"proctype ${1:name}() {",
+			"\t$0",
+			"}"
+			],
+		"description": "Proctype definition"
+	},
+
+	"Assert" : {
+		"prefix": "assert",
+
+		"body": [
+			"assert($0)"
+			],
+		"description": "Insert an assert"
+	},
+
+	"Wrap selection" : {
+		"prefix": "wrap",
+
+		"body": [
+			"${1|atomic,d_step|} {",
+			"\t${2:$TM_SELECTED_TEXT}$0",
+			"}"
+			],
+		"description": "Wrap selection in an atomic or a d_step block"
+	},
+
+	"Inline" : {
+		"prefix": "inline",
+
+		"body": [
+			"inline ${1:name}(${2:args}) {",
+			"\t${3:$TM_SELECTED_TEXT}$0",
+			"}"
+			],
+		"description": "Inline definition (wraps selected text)"
+	},
+
+	"Preprocessor ifdef" : {
+		"prefix": "if-def",
+
+		"body": [
+			"#ifdef ${1:symbol}",
+			"\t${2:$TM_SELECTED_TEXT}$0",
+			"#endif"
+			],
+		"description": "Preprocessor ifdef (wraps selected text)"
+	},
+
+	"Channel": {
+		"prefix": "channel",
+
+		"body": [
+			"chan ${1:name} = [${2:buffSize}] of { ${3:types} };",
+			"$0"
+			],
+		"description": "Channel definition"
+	},
+
+	"Variable declaration": {
+		"prefix": "var",
+
+		"body": [
+			"${1|bit,bool,byte,int,short|} ${2:name};",
+			"$0"
+		],
+		"description": "Defines a variable"
+	},
+
+	"Variable declaration with initialization": {
+		"prefix": "initialized",
+
+		"body": [
+			"${1|bit,bool,byte,int,short|} ${2:name} = ${3:value};",
+			"$0"
+		],
+		"description": "Defines a variable and an initializer"
+	},
+
+	"Array declaration": {
+		"prefix": "array",
+
+		"body": [
+			"${1|bit,bool,byte,int,short|} ${2:name}[${3:size}];",
+			"$0"
+		],
+		"description": "Defines an array"
+	},
+
+	"Typedef": {
+		"prefix": "typedef",
+
+		"body": [
+			"typedef ${1:name} {",
+			"\t$0",
+			"}"
+		],
+		"description": "Declares a user-defined struct"
+	}
+}
