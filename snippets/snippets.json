@@ -170,5 +170,15 @@
 			"}"
 		],
 		"description": "Declares a user-defined struct"
+	},
+	"Unless": {
+		"prefix": "unless",
+
+		"body": [
+			"{",
+			"\t${1:$TM_SELECTED_TEXT}",
+			"} unless { $0 }"
+		],
+		"description": "Unless block"
 	}
 }
